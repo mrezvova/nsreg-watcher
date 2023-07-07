@@ -41,3 +41,4 @@ class NsregYuSpider(scrapy.Spider):
         item['price'] = price
 
         yield item
+
