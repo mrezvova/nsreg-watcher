@@ -5,7 +5,7 @@ import re
 
 def find_price(re_pattern, price):
     price = str(price).strip()
-    if price == "бесплатно":
+    if price.lower() == "бесплатно":
         price = 0
     else:
         if m := re.match(re_pattern, price):
