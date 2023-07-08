@@ -1,6 +1,14 @@
 import scrapy
+from nsreg.items import NsregItem
+
 from ..utils import find_price
+
 REGEX_PATTERN = r"([0-9]+[.,\s])?руб"
+EMPTY_PRICE = {
+    'pricereg': None,
+    'priceprolong': None,
+    'pricechange': None,
+}
 
 class NsregRedregSpider(scrapy.Spider):
     name = 'nsreg_redreg'
@@ -12,7 +20,7 @@ class NsregRedregSpider(scrapy.Spider):
         pricereg = find_price(REGEX_PATTERN, pricereg)
         priceprolong = response.xpath('//article[@class="b-prices__item b-section"]/div/table/tr[5]/td[@class="b-table__cell b-table__cell_last"]/text()').get()
         priceprolong = find_price(REGEX_PATTERN, priceprolong)
-        print ('!!!!!!!!!! AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH I AM RUNNING!!!!!!!!!!!!!!!!!!!!!!!!!')
+
         item = NsregItem()
         item['name'] = "ООО «Редрег»"
         price = item.get('price', EMPTY_PRICE)
