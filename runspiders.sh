@@ -78,6 +78,7 @@ scrapy crawl nsreg_stepmedia --logfile $ERROR_LOG --loglevel $LOG_LEVEL
 scrapy crawl nsreg_technodata --logfile $ERROR_LOG --loglevel $LOG_LEVEL
 scrapy crawl nsreg_uninic --logfile $ERROR_LOG --loglevel $LOG_LEVEL
 scrapy crawl nsreg_spacewebdomains --logfile $ERROR_LOG --loglevel $LOG_LEVEL
+scrapy crawl nsreg_firefox --logfile $ERROR_LOG --loglevel $LOG_LEVEL
 
 if [ ! -s "$ERROR_LOG" ]; then
     echo "Grabber finished without errors."
