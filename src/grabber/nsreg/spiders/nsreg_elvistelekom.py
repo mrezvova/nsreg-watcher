@@ -13,7 +13,7 @@ EMPTY_PRICE = {
     'priceprolong': None,
     'pricechange': None,
 }
-class Nsreg4itSpider(scrapy.Spider):
+class NsregElvistelekomSpider(scrapy.Spider):
     name = "nsreg_elvistelekom"
     allowed_domains = ["www.getname.ru"]
     start_urls = ["http://www.getname.ru/reg/price"]
@@ -26,7 +26,7 @@ class Nsreg4itSpider(scrapy.Spider):
         priceprolong = find_price(REGEX_PATTERN, priceprolong)
 
         pricechange = response.xpath('/html/body/table/tr[6]/td[2]/table[2]/tr[7]/td[2]/text()').get()
-        pricechange = find_price(REGEX_PATTERN, pricechange.lower())
+        pricechange = find_price(REGEX_PATTERN, pricechange)
 
         item = NsregItem()
         item['name'] = "ООО «Элвис-Телеком»"
