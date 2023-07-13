@@ -21,7 +21,7 @@
             "module": "scrapy",
             "args": [
                 "crawl",
-                "nsreg_regplanet"
+                "nsreg_reg"
             ],
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}/src/grabber/nsreg"
